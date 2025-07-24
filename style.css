@@ -1,0 +1,317 @@
+/* ===== RESET E VARIÁVEIS GLOBAIS ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #ff416c;
+  --secondary-color: #ff4b2b;
+  --success-color: #28a745;
+  --success-hover: #218838;
+  --info-color: #2196f3;
+  --info-hover: #0b7dda;
+  --green-primary: #27ae60;
+  --green-secondary: #2ecc40;
+  --text-color: #333;
+  --text-muted: #666;
+  --bg-light: #f5f5f5;
+  --bg-crud: #f4f4f4;
+  --white: #fff;
+  --border-color: #ccc;
+  --border-light: #ffe0ec;
+  --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --shadow-primary: 0 6px 36px rgba(255, 65, 108, 0.15), 0 1.5px 8px rgba(255, 75, 43, 0.1);
+  --transition: all 0.3s ease;
+}
+
+/* ===== ANIMAÇÕES GLOBAIS ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== ESTILOS BASE PARA CADA PÁGINA ===== */
+
+/* LOGIN PAGE */
+body.login-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* MENU/CRUD PAGE */
+body.menu-page {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--bg-light);
+}
+
+/* CADASTRO PAGE */
+body.cadastro-page {
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-crud);
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+/* ===== COMPONENTES DE LOGIN ===== */
+.login-container {
+  background: var(--white);
+  border-radius: 1.2rem;
+  box-shadow: var(--shadow-primary);
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 370px;
+  animation: fadeIn 0.8s;
+}
+
+.login-container h1 {
+  color: var(--primary-color);
+  font-weight: 700;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.login-container .form-group {
+  margin-bottom: 1.4rem;
+}
+
+.login-container .form-group label {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.login-container input {
+  width: 100%;
+  border-radius: 0.7rem;
+  border: 2px solid var(--border-light);
+  background: #fff7fa;
+  padding: 0.75rem 1rem;
+  font-size: 1.05rem;
+  color: var(--text-color);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.login-container input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(255, 65, 108, 0.12);
+  background: var(--white);
+}
+
+.login-container input::placeholder {
+  color: #ff416c99;
+  opacity: 1;
+  font-weight: 400;
+}
+
+.login-container button {
+  background: linear-gradient(90deg, var(--green-primary) 0%, var(--green-secondary) 100%);
+  border: none;
+  border-radius: 0.7rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 0.7rem 0;
+  width: 60%;
+  box-shadow: 0 2px 8px rgba(39, 174, 96, 0.1);
+  transition: background 0.2s, transform 0.1s;
+  display: block;
+  margin: 1.2rem auto 0 auto;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.login-container button:hover,
+.login-container button:focus {
+  background: linear-gradient(90deg, var(--green-secondary) 0%, var(--green-primary) 100%);
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* ===== COMPONENTES DO MENU ===== */
+.menu-page .container {
+  background: var(--white);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: var(--shadow-light);
+  text-align: center;
+}
+
+.menu-page h1 {
+  color: var(--text-color);
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.menu-page p {
+  color: var(--text-muted);
+  margin-bottom: 30px;
+  font-size: 18px;
+}
+
+.menu-page .loading {
+  color: var(--text-muted);
+  font-size: 18px;
+}
+
+.button-group {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.button-group button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: var(--transition);
+  min-width: 120px;
+  font-weight: 600;
+}
+
+#cadastro {
+  background-color: var(--success-color);
+  color: var(--white);
+}
+
+#cadastro:hover {
+  background-color: var(--success-hover);
+  transform: translateY(-2px);
+}
+
+#logout {
+  background-color: var(--info-color);
+  color: var(--white);
+}
+
+#logout:hover {
+  background-color: var(--info-hover);
+  transform: translateY(-2px);
+}
+
+/* ===== COMPONENTES DO CADASTRO ===== */
+.cadastro-page h1 {
+  text-align: center;
+  color: var(--text-color);
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+}
+
+.cadastro-form {
+  max-width: 500px;
+  margin: 0 auto;
+  background: var(--white);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: var(--shadow-light);
+}
+
+.cadastro-page input[type="text"],
+.cadastro-page input[type="number"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border: 2px solid #e1e5e9;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: var(--transition);
+}
+
+.cadastro-page input[type="text"]:focus,
+.cadastro-page input[type="number"]:focus {
+  outline: none;
+  border-color: var(--success-color);
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.12);
+}
+
+.cadastro-page input::placeholder {
+  color: #999;
+  font-weight: 400;
+}
+
+.cadastro-page button {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  background-color: var(--success-color);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 20px;
+  transition: var(--transition);
+}
+
+.cadastro-page button:hover {
+  background-color: var(--success-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+  .login-container {
+    margin: 20px;
+    padding: 2rem 1.5rem;
+  }
+
+  .menu-page .container {
+    margin: 10px;
+    padding: 20px;
+  }
+
+  .button-group {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .button-group button {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .cadastro-form {
+    margin: 10px;
+    padding: 20px;
+  }
+
+  .cadastro-page h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    max-width: 320px;
+  }
+
+  .login-container button {
+    width: 80%;
+  }
+
+  .cadastro-page input[type="text"],
+  .cadastro-page input[type="number"] {
+    padding: 10px 12px;
+  }
+}
